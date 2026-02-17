@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মিরাকেল এগ্রো ও শেলটেক স্টোর</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f4f1ea; color: #333; }
+        header { background-color: #2d5a27; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 12px; padding: 15px; border: 1px solid #d2b48c; text-align: center; }
+        .product-card img { width: 100%; border-radius: 8px; height: 200px; object-fit: contain; }
+        .price { color: #8b4513; font-weight: bold; font-size: 1.2em; }
+        .order-btn { background-color: #25d366; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; font-weight: bold; }
+        .category { font-size: 0.8em; color: #2d5a27; background: #e8f5e9; padding: 3px 10px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>মিরাকেল এগ্রো ও হার্ডওয়্যার</h1>
+    <p>সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন</p>
+</header>
+
+<div class="container">
+    <div class="product-grid" id="product-list"></div>
+</div>
+
+<script>
+    const products = [
+        {
+            name: "Miracle Growth (বোরন মিশ্রণ)",
+            category: "সার",
+            price: "৮০০/-",
+            desc: "উচ্চ ফলনশীল অণুখাদ্য - ১ কেজি প্যাক।"
+        },
+        {
+            name: "Sheltech Sandpaper P100",
+            category: "হার্ডওয়্যার",
+            price: "৩৫/-",
+            desc: "ইউরোপিয়ান প্রযুক্তির উচ্চমানের শিরিষ কাগজ (মাঝারি)।"
+        },
+        {
+            name: "Sheltech Sandpaper P120",
+            category: "হার্ডওয়্যার",
+            price: "৩০/-",
+            desc: "মসৃণ ফিনিশিংয়ের জন্য আদর্শ শিরিষ কাগজ।"
+        }
+    ];
+
+    const whatsappNumber = "8801322287303";
+    const container = document.getElementById('product-list');
+
+    products.forEach(p => {
+        const message = `আমি এই পণ্যটি কিনতে আগ্রহী: %0Aনাম: ${p.name}%0Aদাম: ${p.price}`;
+        const link = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        container.innerHTML += `
+            <div class="product-card">
+                <span class="category">${p.category}</span>
+                <h3>${p.name}</h3>
+                <p>${p.desc}</p>
+                <p class="price">মূল্য: ${p.price}</p>
+                <a href="${link}" class="order-btn" target="_blank">WhatsApp অর্ডার</a>
+            </div>
+        `;
+    });
+</script>
+</body>
+  </html>
+  
